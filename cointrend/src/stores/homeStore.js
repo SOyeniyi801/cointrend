@@ -20,7 +20,11 @@ const homeStore = create((set) => ({
 
     if (query.length > 2) {
       const res = await axios.get(
-        `https://api.coingecko.com/api/v3/search?query=${query}`
+        `https://api.coingecko.com/api/v3/search?query=${query}`, {
+          headers: {
+            'x-cg-demo-api-key': process.env.REACT_APP_COINGECKO_API_KEY
+          }
+        }
       );
 
       const coins = res.data.coins.map((coin) => {
@@ -36,10 +40,18 @@ const homeStore = create((set) => ({
     }
   }, 500),
   fetchCoins: async () => {
-    const [res, btcRes,] = await Promise.all ([
-      axios.get('https://api.coingecko.com/api/v3/search/trending'),
-      axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
-    ])
+    const [res, btcRes] = await Promise.all([
+        axios.get('https://api.coingecko.com/api/v3/search/trending', {
+            headers: {
+                'x-cg-demo-api-key': process.env.REACT_APP_COINGECKO_API_KEY
+            }
+        }),
+        axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd', {
+            headers: {
+                'x-cg-demo-api-key': process.env.REACT_APP_COINGECKO_API_KEY
+            }
+        })
+    ]);
     
     const btcPrice = btcRes.data.bitcoin.usd; 
     console.log("Price",btcPrice)

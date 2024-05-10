@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "ajv": "^8.13.0",
     "axios": "^1.6.8",
     "classnames": "^2.5.1",
+    "dotenv": "^16.4.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.0",
@@ -16,6 +17,7 @@
     "recharts": "^2.12.6",
     "sass": "^1.76.0",
     "save": "^2.9.0",
+    "typescript": "^3.9.10",
     "web-vitals": "^2.1.4",
     "zustand": "^4.5.2"
   },
@@ -29,6 +31,17 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "@babel"
     ]
   },
   "browserslist": {
@@ -42,5 +55,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "7.22.5",
+    "@babel/eslint-parser": "7.22.5",
+    "@babel/eslint-plugin": "^7.24.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.23.3",
+    "@babel/preset-env": "7.22.5"
   }
 }
