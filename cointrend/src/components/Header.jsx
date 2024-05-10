@@ -19,7 +19,7 @@ export default function Header({ back }) {
         )}
 
         <h1>
-          <Link to="/">Coiner!</Link>
+          <Link to="/">CoinTrend</Link>
         </h1>
       </div>
     </header>
