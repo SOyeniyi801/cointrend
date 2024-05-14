@@ -21,6 +21,9 @@ export default function Header({ back }) {
         <h1>
           <Link to="/">CoinTrend</Link>
         </h1>
+        <h5>
+          <Link to='/compare'>Compare</Link>
+        </h5>
       </div>
     </header>
   );
