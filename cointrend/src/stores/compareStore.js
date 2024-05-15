@@ -1,7 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
 import debounce from "../helpers/debounce";
-import React, { PureComponent } from "react";
 
 const compareStore = create((set) => ({
   coins1: [],
@@ -61,7 +60,7 @@ const compareStore = create((set) => ({
   fetchData: async (id, coinSlot) => {
     const res = await Promise.all([
       axios.get(
-        `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=121`,
+        `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=60`,
         {
           headers: {
             "x-cg-demo-api-key": process.env.REACT_APP_COINGECKO_API_KEY,
